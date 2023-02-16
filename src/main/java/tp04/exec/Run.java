@@ -1,6 +1,8 @@
 /*
- *TokenNameNetBeans: ProjetDemarcheAgile
- *TokenValueNetBeans: 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
+ *TokenNameNetBeans(Github): ProjetDemarcheAgile
+ *TokenValueNetBeans(Github): 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
+ *TokenNameNetBeans(sonar):SONAR_TOKEN
+ *TokenValueNetBeans(sonar):a3161be4aef975de29c8c5f533793ce90a8c65f6
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
