@@ -16,7 +16,10 @@ env:
 on:
   push:
     branches:
-      -'**'
+      - main
+      - Equipe1
+      - Equipe2
+      - Equipe3
   pull_request:
     branches: [ "master" ]
 
