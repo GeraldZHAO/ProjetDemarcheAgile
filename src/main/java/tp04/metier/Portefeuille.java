@@ -89,7 +89,8 @@ public class Portefeuille {
         }
     }
 
-    public Map<Action, LignePortefeuille> affichierAction() {
+    public Map<Action, LignePortefeuille> afficherAction() {
         return this.mapLignes;
     }
+
 }

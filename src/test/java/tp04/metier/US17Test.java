@@ -15,6 +15,8 @@
  */
 package tp04.metier;
 
+/**
+ */
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
@@ -23,23 +25,20 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-public class US8Test {
+public class US17Test {
 
     @Test
-    public void testMethodeAffichierLesAction() {
+    public void testNotNull() {
+        //creation de portefeuille
         Portefeuille p = new Portefeuille();
-        //si protefeuille null
+        ActionSimple bnp;
+
+        // creation d'actions simples
+        bnp = new ActionSimple("BNP");
+        int qte1 = 10;
+        p.acheter(bnp, 10);
+
+        //test
         assertNotNull(p.afficherAction());
     }
-
-    public void testActionNotNull() {
-        Portefeuille p = new Portefeuille();
-        ActionSimple bnp, axa;
-        bnp = new ActionSimple("BNP");
-        axa = new ActionSimple("AXA");
-        p.acheter(axa, 10);
-        p.acheter(bnp, 20);
-
-    }
-
 }
