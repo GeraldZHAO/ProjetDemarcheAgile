@@ -43,4 +43,23 @@ public class ActionComposee extends Action {
         return this.mapPanier.get(as);
     }
     
+    
+//    public void connaitrecComposition(){
+////        System.out.println("Les actions composées <"+super.getLibelle()"> se composent d'actions simples: ");
+//        for(ActionSimple as:this.mapPanier.keySet()){
+//                System.out.println(this.mapPanier.get(as)+" % " + as.getLibelle());
+//            }
+//    }
+    
+    public Map getMap(){
+        Map<ActionSimple, Float> newMap = new HashMap();
+        
+        for(ActionSimple as:this.mapPanier.keySet()){
+            newMap.put(as, this.mapPanier.get(as));
+         
+         }
+        return newMap;
+    }
+    
+    
 }
