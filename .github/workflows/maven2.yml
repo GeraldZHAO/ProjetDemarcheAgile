@@ -16,7 +16,7 @@ env:
 on:
   push:
     branches:
-      - main
+      - master
       - Equipe1
       - Equipe2
       - Equipe3
