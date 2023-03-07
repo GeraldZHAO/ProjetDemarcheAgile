@@ -6,25 +6,104 @@
 
 package tp04.metier;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
- *
+ * 
  * @author perussel
  */
-public class ActionSimple extends Action {
-
+public class ActionSimple extends Action {    
     // attribut lien
     private Map<Jour, Cours> mapCours;
     
-    // constructeur
+    /**
+     * Constructeur d'une action simple
+     * @param libelle
+     * 
+     */
     public ActionSimple(String libelle) {
         // Action simple initialisée comme 1 action
         super(libelle);
         // init spécifique
-        this.mapCours = new HashMap();
+        this.mapCours = new HashMap();     
     }
+    
+    //Getters 
+    public Map<Jour, Cours> getMapCours() {
+        return mapCours;
+    }
+
+    //setters
+    public void setMapCours(Map<Jour, Cours> mapCours) {
+        this.mapCours = mapCours;
+    }
+    /**
+     * Obtenir le cours d'une action simple par un jour donnee
+     * @param j
+     * @return float cours
+     */
+   
+    public float getCours(Jour j){
+        return getMapCours().get(j).getValeur();
+    }
+    
+    /**
+     * Obtenir le cours d'une action simple le plus haut par un jour donnee
+     * @param j
+     * @return 
+     */
+        public float getCoursPlusHaut(){
+
+            float max = 0f;
+            Map<Jour, Cours> map=getMapCours();
+            
+            float value = 0f;
+            
+            Set<Entry<Jour, Cours>> entryset=map.entrySet();
+            
+            for(Entry<Jour, Cours> entry : entryset){
+            
+                value= entry.getValue().getValeur();
+                
+                if(max<value){
+                    max=value;
+                }
+            }
+        return max;
+        }
+    
+        
+    /**
+     * Obtenir le cours d'une action simple le plus bas par un jour donnee
+     * @param j
+     * @return 
+     */
+        public float getCoursPlusBas(){
+          float min = 1000000f;
+            Map<Jour, Cours> map=getMapCours();
+            
+            float value = 0f;
+            
+            Set<Entry<Jour, Cours>> entryset=map.entrySet();
+            
+            for(Entry<Jour, Cours> entry : entryset){
+            
+                value= entry.getValue().getValeur();
+                
+                if(min>value){
+                    min=value;
+                }
+            }
+        return min;
+    }
+    
     
     // enrg possible si pas de cours pour ce jour
     public void enrgCours(Jour j, float v) {
