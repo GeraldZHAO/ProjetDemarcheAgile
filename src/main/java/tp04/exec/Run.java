@@ -16,7 +16,7 @@ import tp04.metier.Jour;
 import tp04.metier.Portefeuille;
 
 public class Run {
-
+    //Commentaire inutile.
     public static void main(String[] args) {
         ActionSimple bnp, axa;
         ActionComposee bqAss;
