@@ -7,8 +7,8 @@
 package tp04.metier;
 
 /**
- *
- * @author perussel
+ * Class representant le jour
+ * @author equipe 2
  */
 public class Jour {
 
@@ -22,6 +22,11 @@ public class Jour {
      */
     public int getAnnee() {
         return annee;
+    }
+    
+    public String getAnneeJour(){
+    
+        return (getAnnee()+" "+getNoJour());
     }
 
 
