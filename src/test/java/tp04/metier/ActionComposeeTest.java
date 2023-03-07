@@ -43,7 +43,7 @@ public class ActionComposeeTest {
 //    @Ignore
 //    public void ignoredTest() {
 //    }
-    public void testCreerComposee() {
+    public void testPourcentageComposee() {
         final String NameA = "franceTV";
         final ActionSimple as = new ActionSimple(NameA);
         final String NameAC = "France";
