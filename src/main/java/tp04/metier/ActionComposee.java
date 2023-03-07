@@ -38,5 +38,9 @@ public class ActionComposee extends Action {
         return valeur;
     }
     
+    public float getPourcentage(ActionSimple as){
+        
+        return this.mapPanier.get(as);
+    }
     
 }
