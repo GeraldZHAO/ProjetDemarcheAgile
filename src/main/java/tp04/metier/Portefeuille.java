@@ -6,6 +6,7 @@
 package tp04.metier;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -13,27 +14,27 @@ import java.util.Map;
  * @author perussel
  */
 public class Portefeuille {
-    
+
     Map<Action, LignePortefeuille> mapLignes;
-    
+
     private class LignePortefeuille {
-        
+
         private Action action;
-        
+
         private int qte;
-        
+
         public int getQte() {
             return qte;
         }
-        
+
         public void setQte(int qte) {
             this.qte = qte;
         }
-        
+
         public Action getAction() {
             return this.action;
         }
-        
+
         public LignePortefeuille(Action action, int qte) {
             this.action = action;
             this.qte = qte;
@@ -43,11 +44,11 @@ public class Portefeuille {
             return Integer.toString(qte);
         }
     }
-    
+
     public Portefeuille() {
         this.mapLignes = new HashMap();
     }
-    
+
     public void acheter(Action a, int q) {
         if (this.mapLignes.containsKey(a) == false) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));
@@ -63,9 +64,9 @@ public class Portefeuille {
             } else if (this.mapLignes.get(a).getQte() == q) {
                 this.mapLignes.remove(a);
             }
-        }        
+        }
     }
-    
+
     public String toString() {
         return this.mapLignes.toString();
     }
@@ -76,5 +77,19 @@ public class Portefeuille {
             total = total + (lp.getQte() * lp.getAction().valeur(j));
         }
         return total;
+    }
+
+    public void affichierLesAction() {
+
+        Iterator<Action> iterator = this.mapLignes.keySet().iterator();
+        while (iterator.hasNext()) {
+            Action key = iterator.next();
+            LignePortefeuille value = this.mapLignes.get(key);
+            System.out.println("nom de action " + key.getLibelle() + ", qte = " + value.getQte());
+        }
+    }
+
+    public Map<Action, LignePortefeuille> affichierAction() {
+        return this.mapLignes;
     }
 }

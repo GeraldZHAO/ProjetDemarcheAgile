@@ -33,7 +33,7 @@ public class Run {
         // enrg de la composition de l'action composée
         bqAss.enrgComposition(axa, 0.3f);
         bqAss.enrgComposition(bnp, 0.7f);
-        // enrg. de 2 cours pour chaque action 
+        // enrg. de 2 cours pour chaque action
         axa.enrgCours(j1, 200);
         axa.enrgCours(j2, 250);
         bnp.enrgCours(j1, 100);
@@ -61,7 +61,9 @@ public class Run {
         System.out.println("Portefeuille : " + p);
         p.vendre(bnp, 50);
         System.out.println("Portefeuille : " + p);
- 
+
+        p.affichierLesAction();
+
     }
 
 }
