@@ -48,6 +48,7 @@ public class US7Test {
         p.acheter(bnp, 1);
         p.acheter(bqAss, 1);
 
+        //test la result de valeur si bien correspond le resultat correct
         assertEquals(30, p.valeur(j2));
     }
 
