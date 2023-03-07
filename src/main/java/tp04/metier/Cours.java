@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tp04.metier;
 
 /**
@@ -11,5 +10,21 @@ package tp04.metier;
  * @author perussel
  */
 public class Cours {
-    
+
+    private final Jour jour;
+
+    private final float valeur;
+
+    public Cours(Jour jour, float valeur) {
+        this.jour = jour;
+        this.valeur = valeur;
+    }
+
+    public float getValeur() {
+        return this.valeur;
+    }
+
+    public Jour getJour() {
+        return this.jour;
+    }
 }
