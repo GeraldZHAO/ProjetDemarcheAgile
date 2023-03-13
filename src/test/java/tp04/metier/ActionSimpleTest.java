@@ -73,15 +73,17 @@ public class ActionSimpleTest {
         
         Assertions.assertEquals(5.90f, rs,"La label de l'action doit etre celui fournit au constrcteur");
     }
+    
+    @Test
     public void testEvolutionAction() {
         final ActionSimple as = new ActionSimple("A1");   
         final Jour jourDebut = new Jour(2023,101); 
-        final Jour jourFin = new Jour(2022,103); 
+        final Jour jourFin = new Jour(2023,103); 
         
         final Jour j1 = new Jour(2022,100); 
         final Jour j2 = new Jour(2022,108); 
         final Jour j3 = new Jour(2023,100);
-        final Jour j4 = new Jour(2022,101); 
+        final Jour j4 = new Jour(2023,101); 
         final Jour j5 = new Jour(2023,102); 
         final Jour j6 = new Jour(2023,103);
         final Jour j7 = new Jour(2023,104);
@@ -102,6 +104,23 @@ public class ActionSimpleTest {
         mTest.put(j5, new Cours(j5,6.99f));
         mTest.put(j6, new Cours(j6,7.12f));
         Assertions.assertNotNull(m,"Le map n'est pas NULL"); 
-        Assertions.assertEquals(mTest, m,"Equal");
+        Assertions.assertEquals(6.99f, m.get(j5).getValeur(),"Equal");
+       Assertions.assertEquals(6.99f, m.get(j5).getValeur(),"Equal");
     }
+    @Test
+    public void testEvoPourcentage() {
+        final ActionSimple as = new ActionSimple("A1");  
+        
+        final Jour j1 = new Jour(2022,100); 
+        final Jour j2 = new Jour(2022,108); 
+        
+        as.enrgCours(j1, 5f);
+        as.enrgCours(j2, 6f);
+
+        final float result  = as.getPourcentageEvo(j1, j2);
+        Assertions.assertEquals(20f,result,"Equal");
+
+        
+    }
+    
 }

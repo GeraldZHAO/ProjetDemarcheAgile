@@ -52,7 +52,6 @@ public class ActionSimple extends Action {
      * @param j
      * @return float cours
      */
-
     public float getCours(Jour j) {
         return getMapCours().get(j).getValeur();
     }
@@ -108,6 +107,14 @@ public class ActionSimple extends Action {
         return min;
     }
 
+    /**
+     * methode qui permet d'avoir l'evolution cours d'une action au cours d'une
+     * periode
+     *
+     * @param j1
+     * @param j2
+     * @return
+     */
     public Map<Jour, Cours> getEvolution(Jour j1, Jour j2) {
 
         Map<Jour, Cours> map = getMapCours();
@@ -118,21 +125,50 @@ public class ActionSimple extends Action {
         int anneeFin = j2.getAnnee();
         int noJourDebut = j1.getNoJour();
         int noJourFin = j2.getNoJour();
-        
+
         int annee;
         int nojour;
-        
+
         for (Entry<Jour, Cours> entry : entryset) {
 
             annee = entry.getValue().getJour().getAnnee();
             nojour = entry.getValue().getJour().getNoJour();
             if (anneeDebut >= annee && annee <= anneeFin) {
-                if (noJourDebut >= nojour && nojour <= noJourFin) {
-                    mapResultat.put(entry.getKey(), entry.getValue());
+                if (anneeDebut == anneeFin) {
+                    if (noJourDebut <= nojour && nojour <= noJourFin) {
+                        mapResultat.put(entry.getKey(), entry.getValue());
+                    }
+                } else {
+                    if (annee == anneeDebut) {
+                        if (noJourDebut <= nojour) {
+                            mapResultat.put(entry.getKey(), entry.getValue());
+                        }
+                    } else if (annee == anneeFin) {
+                        if (nojour <= noJourFin) {
+                            mapResultat.put(entry.getKey(), entry.getValue());
+                        }
+                    } else {
+                        mapResultat.put(entry.getKey(), entry.getValue());
+                    }
                 }
             }
         }
         return mapResultat;
+    }
+
+    /**
+     * methode qui permet d'obtenir le % de changement entre deux jours
+     *
+     * @param j1
+     * @param j2
+     * @return float
+     */
+    public float getPourcentageEvo(Jour j1, Jour j2) {
+        //valeurs
+        float cours1 = getMapCours().get(j1).getValeur();
+        float cours2 = getMapCours().get(j2).getValeur();
+
+        return ((cours2 - cours1) / cours1) * 100;
     }
 
     // enrg possible si pas de cours pour ce jour
