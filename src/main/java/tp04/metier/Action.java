@@ -33,6 +33,8 @@ public abstract class Action {
 
     public abstract float valeur(Jour j);
     
+    //public abstract void  enrgComposition(ActionSimple as, float pourcentage);
+    
     @Override
     public int hashCode() {
         int hash = 3;
