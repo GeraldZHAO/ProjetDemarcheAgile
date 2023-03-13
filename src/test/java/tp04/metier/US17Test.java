@@ -25,10 +25,10 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-public class US17Test {
+class US17Test {
 
     @Test
-    public void testNotNull() {
+    void testNotNull() {
         //creation de portefeuille
         Portefeuille p = new Portefeuille();
         ActionSimple bnp;
@@ -39,6 +39,6 @@ public class US17Test {
         p.acheter(bnp, 10);
 
         //test
-        assertNotNull(p.afficherAction());
+        assertNotNull(p.afficherAction(), "action achetée");
     }
 }

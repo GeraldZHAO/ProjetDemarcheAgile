@@ -16,13 +16,12 @@
 package tp04.metier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
-public class US18Test {
+class US18Test {
 
     @Test
-    public void testNotNull() {
+    void testNotNull() {
         //creation de portefeuille
         Portefeuille p = new Portefeuille();
         ActionSimple bnp;
@@ -36,6 +35,6 @@ public class US18Test {
         p.vendre(bnp, qte1);
         //test
         //On vend l'action qu'onn vient d'acheter donc la taille de la liste qui continet les actions dans notre portefeuille devrais etre O
-        assertEquals(0, p.mapLignes.size());
+        assertEquals(0, p.mapLignes.size(), "l'action  a ete vendue");
     }
 }

@@ -24,16 +24,16 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-public class US8Test {
+class US8Test {
 
     @Test
-    public void testMethodeAffichierLesAction() {
+    void testMethodeAffichierLesAction() {
         Portefeuille p = new Portefeuille();
         //si protefeuille null
         assertNotNull(p.afficherAction());
     }
 
-    public void testActionNotNull() {
+    void testActionNotNull() {
         Portefeuille p = new Portefeuille();
         ActionSimple bnp, axa;
         bnp = new ActionSimple("BNP");
@@ -42,8 +42,8 @@ public class US8Test {
         p.acheter(bnp, 20);
 
         //test
-        assertNotNull(p.afficherAction());
-        assertEquals(0, p.afficherAction().size());
+        assertNotNull(p.afficherAction(), "pas nul");
+        assertEquals(0, p.afficherAction().size(), "remplis");
 
     }
 

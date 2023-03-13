@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author perussel
  */
-public abstract class Action implements Comparable<Action> {
+public abstract class AbstractAction implements Comparable<AbstractAction> {
 
     private String libelle;
 
@@ -26,7 +26,7 @@ public abstract class Action implements Comparable<Action> {
         return libelle;
     }
 
-    public Action(String libelle) {
+    public AbstractAction(String libelle) {
         this.libelle = libelle;
     }
 
@@ -47,7 +47,7 @@ public abstract class Action implements Comparable<Action> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Action other = (Action) obj;
+        final AbstractAction other = (AbstractAction) obj;
         if (!Objects.equals(this.libelle, other.libelle)) {
             return false;
         }
@@ -57,8 +57,5 @@ public abstract class Action implements Comparable<Action> {
     public String toString() {
         return this.getLibelle();
     }
-
-    @Override
-    public abstract int compareTo(Action o);
 
 }

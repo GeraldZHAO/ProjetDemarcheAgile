@@ -23,13 +23,13 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-public class US1Test {
+class US1Test {
 
     @Test
-    public void testNotNull() {
+    void testNotNull() {
         Portefeuille p = new Portefeuille();
         // System.out.println(assertNull(this.p));
         //test
-        assertNotNull(p);
+        assertNotNull(p, "portefeuille crée");
     }
 }

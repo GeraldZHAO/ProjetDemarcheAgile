@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-public class US21Test {
+class US21Test {
 
     @Test
     public void testActionPlusImportant() {
@@ -47,7 +47,7 @@ public class US21Test {
         p.acheter(bqAss, 1);
 
         //test la result de valeur si bien correspond le resultat correct
-        assertEquals(axa, p.actionPlusImportant(j2));
+        assertEquals(axa, p.actionPlusImportant(j2), "valeur plus importante verifier");
     }
 
 }

@@ -17,11 +17,13 @@ import java.util.logging.Logger;
  */
 public class Portefeuille {
 
-    Map<Action, LignePortefeuille> mapLignes;
+    Map<AbstractAction, LignePortefeuille> mapLignes;
+
+    private static final Logger LOG = Logger.getLogger(Portefeuille.class.getName());
 
     private class LignePortefeuille {
 
-        private Action action;
+        private AbstractAction action;
 
         private int qte;
 
@@ -33,11 +35,11 @@ public class Portefeuille {
             this.qte = qte;
         }
 
-        public Action getAction() {
+        public AbstractAction getAction() {
             return this.action;
         }
 
-        public LignePortefeuille(Action action, int qte) {
+        public LignePortefeuille(AbstractAction action, int qte) {
             this.action = action;
             this.qte = qte;
         }
@@ -51,7 +53,7 @@ public class Portefeuille {
         this.mapLignes = new HashMap();
     }
 
-    public void acheter(Action a, int q) {
+    public void acheter(AbstractAction a, int q) {
         if (this.mapLignes.containsKey(a) == false) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));
         } else {
@@ -60,7 +62,7 @@ public class Portefeuille {
 
     }
 
-    public void vendre(Action a, int q) {
+    public void vendre(AbstractAction a, int q) {
         if (this.mapLignes.containsKey(a) == true) {
             if (this.mapLignes.get(a).getQte() > q) {
                 this.mapLignes.get(a).setQte(this.mapLignes.get(a).getQte() - q);
@@ -73,7 +75,6 @@ public class Portefeuille {
     public String toString() {
         return this.mapLignes.toString();
     }
-    private static final Logger LOG = Logger.getLogger(Portefeuille.class.getName());
 
     public float valeur(Jour j) {
         float total = 0;
@@ -85,26 +86,26 @@ public class Portefeuille {
 
     public void affichierLesAction() {
 
-        Iterator<Action> iterator = this.mapLignes.keySet().iterator();
+        Iterator<AbstractAction> iterator = this.mapLignes.keySet().iterator();
         while (iterator.hasNext()) {
-            Action key = iterator.next();
+            AbstractAction key = iterator.next();
             LignePortefeuille value = this.mapLignes.get(key);
             String s = "nom de action " + key.getLibelle() + ", qte = " + value.getQte();
             LOG.log(java.util.logging.Level.SEVERE, s);
         }
     }
 
-    public Map<Action, LignePortefeuille> afficherAction() {
+    public Map<AbstractAction, LignePortefeuille> afficherAction() {
         return this.mapLignes;
     }
 
-    public Action actionPlusImportant(Jour j) {
-        Action actionPlusImportant = null;
-        double valeur = 0.0;
+    public AbstractAction actionPlusImportant(Jour j) {
+        AbstractAction actionPlusImportant = null;
+        double var = 0.0;
 
-        for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
-            if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > valeur) {
-                valeur = entry.getKey().valeur(j) * entry.getValue().qte;
+        for (Map.Entry<AbstractAction, LignePortefeuille> entry : mapLignes.entrySet()) {
+            if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > var) {
+                var = (double) entry.getKey().valeur(j) * (double) entry.getValue().qte;
                 actionPlusImportant = entry.getKey();
             }
         }

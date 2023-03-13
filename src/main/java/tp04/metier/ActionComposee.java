@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author perussel
  */
-public class ActionComposee extends Action {
+public class ActionComposee extends AbstractAction {
 
     // attribut lien
     Map<ActionSimple, Float> mapPanier;
@@ -39,8 +39,9 @@ public class ActionComposee extends Action {
     }
 
     @Override
-    public int compareTo(Action o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int compareTo(AbstractAction o) {
+        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author perussel
  */
-public class ActionSimple extends Action {
+public class ActionSimple extends AbstractAction {
 
     // attribut lien
     private Map<Jour, Cours> mapCours;
@@ -27,7 +27,7 @@ public class ActionSimple extends Action {
 
     // enrg possible si pas de cours pour ce jour
     public void enrgCours(Jour j, float v) {
-        if (this.mapCours.containsKey(j) == false) {
+        if (this.mapCours.containsKey(j)) {
             this.mapCours.put(j, new Cours(j, v));
         }
     }
@@ -42,8 +42,9 @@ public class ActionSimple extends Action {
     }
 
     @Override
-    public int compareTo(Action o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int compareTo(AbstractAction o) {
+        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     // encapsulation de la définition de la classe Cours
