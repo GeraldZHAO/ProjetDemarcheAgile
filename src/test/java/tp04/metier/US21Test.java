@@ -17,34 +17,39 @@ package tp04.metier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
 /**
  *
  * @author h
  */
-public class US8Test {
+public class US21Test {
 
     @Test
-    public void testMethodeAffichierLesAction() {
+    public void testActionPlusImportant() {
         Portefeuille p = new Portefeuille();
-        //si protefeuille null
-        assertNotNull(p.afficherAction());
-    }
+        Jour j2 = new Jour(2014, 2);
 
-    public void testActionNotNull() {
-        Portefeuille p = new Portefeuille();
-        ActionSimple bnp, axa;
-        bnp = new ActionSimple("BNP");
-        axa = new ActionSimple("AXA");
-        p.acheter(axa, 10);
-        p.acheter(bnp, 20);
+        //pour verifier si cette methode peut renvoyer une valeur
+        assertNotNull(p.valeur(j2));
 
-        //test
-        assertNotNull(p.afficherAction());
-        assertEquals(0, p.afficherAction().size());
+        //metter les actions dans le portefeuille
+        ActionSimple bnp = new ActionSimple("BNP");
+        ActionSimple axa = new ActionSimple("AXA");
+        ActionComposee bqAss = new ActionComposee("Banque-Assurance");
+        // enrg de la composition de l'action composée
+        bqAss.enrgComposition(axa, 0.3f);
+        bqAss.enrgComposition(bnp, 0.7f);
 
+        bnp.enrgCours(j2, 10);
+        axa.enrgCours(j2, 10);
+
+        p.acheter(axa, 2);
+        p.acheter(bnp, 1);
+        p.acheter(bqAss, 1);
+
+        //test la result de valeur si bien correspond le resultat correct
+        assertEquals(axa, p.actionPlusImportant(j2));
     }
 
 }

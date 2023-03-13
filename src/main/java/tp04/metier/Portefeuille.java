@@ -55,6 +55,7 @@ public class Portefeuille {
         } else {
             this.mapLignes.get(a).setQte(this.mapLignes.get(a).getQte() + q);
         }
+
     }
 
     public void vendre(Action a, int q) {
@@ -91,6 +92,20 @@ public class Portefeuille {
 
     public Map<Action, LignePortefeuille> afficherAction() {
         return this.mapLignes;
+    }
+
+    public Action actionPlusImportant(Jour j) {
+        Action actionPlusImportant = null;
+        float valeur = 0;
+
+        for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
+            if (entry.getKey().valeur(j) * entry.getValue().qte > valeur) {
+                valeur = entry.getKey().valeur(j) * entry.getValue().qte;
+                actionPlusImportant = entry.getKey();
+            }
+        }
+        return actionPlusImportant;
+
     }
 
 }

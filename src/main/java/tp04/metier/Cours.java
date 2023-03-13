@@ -27,4 +27,5 @@ public class Cours {
     public Jour getJour() {
         return this.jour;
     }
+
 }

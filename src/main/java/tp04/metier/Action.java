@@ -5,7 +5,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tp04.metier;
 
 import java.util.Objects;
@@ -15,7 +14,7 @@ import java.util.Objects;
  * @author perussel
  */
 public abstract class Action {
-    
+
     private String libelle;
 
     /**
@@ -32,7 +31,7 @@ public abstract class Action {
     }
 
     public abstract float valeur(Jour j);
-    
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -58,4 +57,5 @@ public abstract class Action {
     public String toString() {
         return this.getLibelle();
     }
+
 }
