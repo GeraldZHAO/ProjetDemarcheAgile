@@ -55,7 +55,7 @@ public class ActionComposeeTest {
         ac.enrgComposition(as, p);
         final float getPourcentage = ac.getPourcentage(as);
         
-        Assertions.assertEquals(p,getPourcentage,"Le pourcentage est =");
+        Assertions.assertEquals(p,getPourcentage,"Le pourcentage est equal.");
         
     }
     
@@ -84,56 +84,37 @@ public class ActionComposeeTest {
 //        final float Cout = 23.5f*p + 24.5f*p1;
         final float getCout = as.valeur(j1);
         
-        Assertions.assertEquals(Cout,getCout,"Le valeur est =");
+        Assertions.assertEquals(Cout,getCout,"Le valeur est equal.");
         
     }
     
     
     
-//    @org.junit.jupiter.api.Test
-//    public void testComposition() {
-//        final String NameA = "franceTV";
-//        final String NameA1 = "franceMTV";
-//        final ActionSimple as = new ActionSimple(NameA);
-//        final ActionSimple as1 = new ActionSimple(NameA1);
-//        final String NameAC = "France";
-//        final ActionComposee ac = new ActionComposee(NameAC);
-//        final float p = 0.3f; 
-//        final float p1 = 0.4f; 
-////        ac.enrgComposition(as, p);
-////        ac.enrgComposition(as1, p1);
-////        final String = ac.connaitrecComposition();
-////        
-////        Assertions.assertEquals(p,getPourcentage,"Le pourcentage est =");
-////        
-//        Map<ActionSimple, Float> map = new HashMap();
-//        map.put(as, p);
-//        map.put(as1, p1);
+    @org.junit.jupiter.api.Test
+    public void testComposition() {
+        final String NameA = "franceTV";
+        final String NameA1 = "franceMTV";
+        final ActionSimple as = new ActionSimple(NameA);
+        final ActionSimple as1 = new ActionSimple(NameA1);
+        final String NameAC = "France";
+        final ActionComposee ac = new ActionComposee(NameAC);
+        final float p = 0.3f; 
+        final float p1 = 0.4f; 
+        ac.enrgComposition(as, p);
+        ac.enrgComposition(as1, p1);
+//        final String = ac.connaitrecComposition();
 //        
-//        final Map m = ac.getMap();
-//
-//        //All passed / true
-//
-//        //1. Test equal, ignore order
-////        Assertions.assertEquals(ac,m,"La composition est =");
-//        assertThat(map, is(m));
-//
-////        //2. Test size
-//        assertThat(map.size(), is(2));
-////
-////        //3. Test map entry, best!
-////        assertThat(map, IsMapContaining.hasEntry("n", "node"));
-////
-////        assertThat(map, not(IsMapContaining.hasEntry("r", "ruby")));
-////
-////        //4. Test map key
-////        assertThat(map, IsMapContaining.hasKey("j"));
-////
-////        //5. Test map value
-////        assertThat(map, IsMapContaining.hasValue("node"));
-//
-//    
-//    }
+//        Assertions.assertEquals(p,getPourcentage,"Le pourcentage est =");
+//        
+        Map<ActionSimple, Float> map = new HashMap();
+        map.put(as, p);
+        map.put(as1, p1);
+        
+        final Map m = ac.getMap();
+
+        Assertions.assertEquals(map,m,"La map est equal.");
+
+    }
 
 
 

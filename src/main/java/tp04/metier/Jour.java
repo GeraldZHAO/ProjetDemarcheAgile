@@ -5,6 +5,7 @@
  */
 
 package tp04.metier;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,6 +15,7 @@ public class Jour {
 
     private int annee;
     private int noJour;
+    private ArrayList<Action> liste = new ArrayList<Action>();
 
     /**
      * Get the value of annee
@@ -65,4 +67,5 @@ public class Jour {
         return true;
     }
   
+   
 }
