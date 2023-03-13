@@ -5,9 +5,11 @@
  */
 package tp04.metier;
 
+import java.lang.System.Logger.Level;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  *
@@ -71,6 +73,7 @@ public class Portefeuille {
     public String toString() {
         return this.mapLignes.toString();
     }
+    private static final Logger LOG = Logger.getLogger(Portefeuille.class.getName());
 
     public float valeur(Jour j) {
         float total = 0;
@@ -86,7 +89,8 @@ public class Portefeuille {
         while (iterator.hasNext()) {
             Action key = iterator.next();
             LignePortefeuille value = this.mapLignes.get(key);
-            System.out.println("nom de action " + key.getLibelle() + ", qte = " + value.getQte());
+            String s = "nom de action " + key.getLibelle() + ", qte = " + value.getQte();
+            LOG.log(java.util.logging.Level.SEVERE, s);
         }
     }
 
@@ -96,10 +100,10 @@ public class Portefeuille {
 
     public Action actionPlusImportant(Jour j) {
         Action actionPlusImportant = null;
-        float valeur = 0;
+        double valeur = 0.0;
 
         for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
-            if (entry.getKey().valeur(j) * entry.getValue().qte > valeur) {
+            if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > valeur) {
                 valeur = entry.getKey().valeur(j) * entry.getValue().qte;
                 actionPlusImportant = entry.getKey();
             }

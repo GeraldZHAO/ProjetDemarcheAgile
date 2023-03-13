@@ -11,19 +11,24 @@ package tp04.metier;
  */
 public class Cours {
 
+    //propriéte
     private final Jour jour;
 
     private final float valeur;
 
+    //CONSTRUCTUER
     public Cours(Jour jour, float valeur) {
+
         this.jour = jour;
         this.valeur = valeur;
     }
 
+    //Methode pour recuprer le valeur
     public float getValeur() {
         return this.valeur;
     }
 
+    //Methode pour recuperer le jour de cours
     public Jour getJour() {
         return this.jour;
     }

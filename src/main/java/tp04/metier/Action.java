@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author perussel
  */
-public abstract class Action {
+public abstract class Action implements Comparable<Action> {
 
     private String libelle;
 
@@ -57,5 +57,8 @@ public abstract class Action {
     public String toString() {
         return this.getLibelle();
     }
+
+    @Override
+    public abstract int compareTo(Action o);
 
 }
