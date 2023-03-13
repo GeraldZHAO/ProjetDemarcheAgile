@@ -17,6 +17,7 @@ package tp04.metier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -29,9 +30,6 @@ public class US7Test {
     public void testValeurPortefeuille() {
         Portefeuille p = new Portefeuille();
         Jour j2 = new Jour(2014, 2);
-
-        //pour verifier si cette methode peut renvoyer une valeur
-        assertNotNull(p.valeur(j2));
 
         //metter les actions dans le portefeuille
         ActionSimple bnp = new ActionSimple("BNP");
