@@ -52,12 +52,14 @@ public class ActionComposee extends Action {
 //    }
     
     public Map getMap(){
-        Map<ActionSimple, Float> newMap = new HashMap();
-        
-        for(ActionSimple as:this.mapPanier.keySet()){
-            newMap.put(as, this.mapPanier.get(as));
+      Map<ActionSimple, Float> newMap = new HashMap();
+      
+      for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
+          ActionSimple as = entry.getKey();
+//      for(ActionSimple as:this.mapPanier.keySet()){
+        newMap.put(as, this.mapPanier.get(as));
          
-         }
+        }
         return newMap;
     }
     

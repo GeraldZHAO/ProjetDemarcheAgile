@@ -36,8 +36,8 @@ public class ValeurTest {
         final ActionSimple axa = new ActionSimple("AXA");
         final ActionComposee bqAss = new ActionComposee("Banque-Assurance");
         // enrg de la composition de l'action composée
-        bqAss.enrgComposition(axa, 0.3f);
-        bqAss.enrgComposition(bnp, 0.7f);
+        bqAss.enrgComposition(axa, 0.3F);
+        bqAss.enrgComposition(bnp, 0.7F);
         axa.enrgCours(j1, 200);
         bnp.enrgCours(j1, 100);
         

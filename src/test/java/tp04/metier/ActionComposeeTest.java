@@ -51,7 +51,7 @@ public class ActionComposeeTest {
         final ActionSimple as = new ActionSimple(NameA);
         final String NameAC = "France";
         final ActionComposee ac = new ActionComposee(NameAC);
-        final float p = 0.3f; 
+        final float p = 0.3F; 
         ac.enrgComposition(as, p);
         final float getPourcentage = ac.getPourcentage(as);
         
@@ -69,17 +69,17 @@ public class ActionComposeeTest {
         final ActionSimple as1 = new ActionSimple(NameA1);
         final String NameAC = "France";
         final ActionComposee ac = new ActionComposee(NameAC);
-        final float p = 0.3f; 
-        final float p1 = 0.4f; 
+        final float p = 0.3F; 
+        final float p1 = 0.4F; 
         final Jour j1 = new Jour(2023,1);
         
-        as.enrgCours(j1, 23.5f);
-        as1.enrgCours(j1, 24.5f);
+        as.enrgCours(j1, 23.5F);
+        as1.enrgCours(j1, 24.5F);
         
         ac.enrgComposition(as, p);
         ac.enrgComposition(as1, p1);
         
-        final float Cout = 23.5f;
+        final float Cout = 23.5F;
 
 //        final float Cout = 23.5f*p + 24.5f*p1;
         final float getCout = as.valeur(j1);
@@ -98,8 +98,8 @@ public class ActionComposeeTest {
         final ActionSimple as1 = new ActionSimple(NameA1);
         final String NameAC = "France";
         final ActionComposee ac = new ActionComposee(NameAC);
-        final float p = 0.3f; 
-        final float p1 = 0.4f; 
+        final float p = 0.3F; 
+        final float p1 = 0.4F; 
         ac.enrgComposition(as, p);
         ac.enrgComposition(as1, p1);
 //        final String = ac.connaitrecComposition();
