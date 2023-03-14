@@ -27,9 +27,18 @@ public class ActionSimple extends AbstractAction {
 
     // enrg possible si pas de cours pour ce jour
     public void enrgCours(Jour j, float v) {
-        if (this.mapCours.containsKey(j)) {
+        if (!this.mapCours.containsKey(j)) {
             this.mapCours.put(j, new Cours(j, v));
         }
+
+    }
+
+    public Map<Jour, Cours> getMapCours() {
+        return mapCours;
+    }
+
+    public void setMapCours(Map<Jour, Cours> mapCours) {
+        this.mapCours = mapCours;
     }
 
     @Override

@@ -28,8 +28,9 @@ class US1Test {
     @Test
     void testNotNull() {
         Portefeuille p = new Portefeuille();
-        // System.out.println(assertNull(this.p));
+
         //test
+        //pour vérifier est-ce que le portefeuille a été crée réussie
         assertNotNull(p, "portefeuille crée");
     }
 }

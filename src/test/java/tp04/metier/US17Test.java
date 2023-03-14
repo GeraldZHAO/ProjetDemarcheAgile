@@ -39,6 +39,8 @@ class US17Test {
         p.acheter(bnp, 10);
 
         //test
+        //pour vérifier est-ce que les action est bien achetée
+        //Si l'achat de l'action est réussi, il n'est pas null
         assertNotNull(p.afficherAction(), "action achetée");
     }
 }

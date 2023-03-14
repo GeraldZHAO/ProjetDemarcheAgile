@@ -16,6 +16,7 @@ import tp04.metier.Jour;
 import tp04.metier.Portefeuille;
 
 public class Run {
+
     //Commentaire inutile.
     public static void main(String[] args) {
         ActionSimple bnp, axa;
@@ -63,6 +64,7 @@ public class Run {
         System.out.println("Portefeuille : " + p);
 
         p.affichierLesAction();
+        System.out.println(p.actionPlusImportant(j2).getLibelle());
 
     }
 

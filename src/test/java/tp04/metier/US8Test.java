@@ -34,6 +34,7 @@ class US8Test {
     }
 
     void testActionNotNull() {
+        //préparer les données
         Portefeuille p = new Portefeuille();
         ActionSimple bnp, axa;
         bnp = new ActionSimple("BNP");
@@ -42,6 +43,7 @@ class US8Test {
         p.acheter(bnp, 20);
 
         //test
+        //pour vérifier est-ce que le contenu de mapLignes est null
         assertNotNull(p.afficherAction(), "pas nul");
         assertEquals(0, p.afficherAction().size(), "remplis");
 

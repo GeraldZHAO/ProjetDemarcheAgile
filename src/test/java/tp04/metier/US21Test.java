@@ -39,8 +39,8 @@ class US21Test {
         bqAss.enrgComposition(axa, 0.3f);
         bqAss.enrgComposition(bnp, 0.7f);
 
-        bnp.enrgCours(j2, 10);
-        axa.enrgCours(j2, 10);
+        bnp.enrgCours(j2, 10F);
+        axa.enrgCours(j2, 10F);
 
         p.acheter(axa, 2);
         p.acheter(bnp, 1);

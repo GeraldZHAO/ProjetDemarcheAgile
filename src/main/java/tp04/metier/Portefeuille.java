@@ -101,11 +101,12 @@ public class Portefeuille {
 
     public AbstractAction actionPlusImportant(Jour j) {
         AbstractAction actionPlusImportant = null;
-        double var = 0.0;
+        double value = 0.0;
 
         for (Map.Entry<AbstractAction, LignePortefeuille> entry : mapLignes.entrySet()) {
-            if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > var) {
-                var = (double) entry.getKey().valeur(j) * (double) entry.getValue().qte;
+            System.out.println(entry.getKey().valeur(j));
+            if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > value) {
+                value = (double) entry.getKey().valeur(j) * (double) entry.getValue().qte;
 
                 actionPlusImportant = entry.getKey();
             }
