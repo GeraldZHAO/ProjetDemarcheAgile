@@ -148,7 +148,7 @@ public class ActionSimple extends Action {
      * @param j2
      * @return float
      */
-    public float getPourcentageEvo(Jour j1, Jour j2) {
+    public double getPourcentageEvo(Jour j1, Jour j2) {
         //valeurs
         float cours1 = getMapCours().get(j1).getValeur();
         float cours2 = getMapCours().get(j2).getValeur();

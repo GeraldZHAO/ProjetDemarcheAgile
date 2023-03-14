@@ -117,7 +117,7 @@ public class ActionSimpleTest {
         as.enrgCours(j1, 5f);
         as.enrgCours(j2, 6f);
 
-        final float result  = as.getPourcentageEvo(j1, j2);
+        final double result  = as.getPourcentageEvo(j1, j2);
         Assertions.assertEquals(20f,result,"Equal");
 
         
