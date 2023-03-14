@@ -8,6 +8,8 @@ package tp04.metier;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,6 +18,7 @@ import java.util.Map;
 public class ActionComposee extends Action {
     // attribut lien
     Map<ActionSimple, Float> mapPanier;
+    private static final Logger LOG = Logger.getLogger(ActionComposee.class.getName());
 
     public ActionComposee(String libelle) {
         super(libelle);
@@ -45,8 +48,9 @@ public class ActionComposee extends Action {
     
     
     public void connaitrecComposition(){
-        for(ActionSimple as:this.mapPanier.keySet()){
-                System.out.println(this.mapPanier.get(as)+" % " + as.getLibelle());
+        for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
+            ActionSimple as = entry.getKey();
+            LOG.log(Level.INFO, "{0} % {1}", new Object[]{this.mapPanier.get(as), as.getLibelle()});
             }
     }
     
