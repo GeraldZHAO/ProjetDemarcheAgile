@@ -106,6 +106,7 @@ public class Portefeuille {
         for (Map.Entry<AbstractAction, LignePortefeuille> entry : mapLignes.entrySet()) {
             if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > var) {
                 var = (double) entry.getKey().valeur(j) * (double) entry.getValue().qte;
+
                 actionPlusImportant = entry.getKey();
             }
         }
