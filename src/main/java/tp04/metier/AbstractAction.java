@@ -1,10 +1,3 @@
-/*
- *TokenNameNetBeans: ProjetDemarcheAgile
- *TokenValueNetBeans: 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
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tp04.metier;
 
 import java.util.Objects;
@@ -15,45 +8,44 @@ import java.util.Objects;
  */
 public abstract class AbstractAction implements Comparable<AbstractAction> {
 
+    //proprietes
     private String libelle;
+
+    protected AbstractAction(String libelle) {
+        this.libelle = libelle;
+    }
 
     /**
      * Get the value of libelle
      *
      * @return the value of libelle
      */
+    //methodes
+    //retourne de libelle de l'action
     public String getLibelle() {
         return libelle;
     }
+    //pour changer le libelle de l'action
 
-    public AbstractAction(String libelle) {
-        this.libelle = libelle;
-    }
-
+    //valeur de l'action pour un jour donnée
     public abstract float valeur(Jour j);
 
+    //methode hashcode de l'action
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.libelle);
-        return hash;
+        int var = 3;
+        var = 53 * var + Objects.hashCode(this.libelle);
+        return var;
     }
+    //methode equals pour une action
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final AbstractAction other = (AbstractAction) obj;
-        if (!Objects.equals(this.libelle, other.libelle)) {
-            return false;
-        }
-        return true;
+        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return super.equals(obj);
     }
 
+    //methode toString pour une action
     public String toString() {
         return this.getLibelle();
     }

@@ -9,6 +9,7 @@
  */
 package tp04.exec;
 
+import java.util.logging.Logger;
 import tp04.metier.AbstractAction;
 import tp04.metier.ActionComposee;
 import tp04.metier.ActionSimple;
@@ -16,6 +17,8 @@ import tp04.metier.Jour;
 import tp04.metier.Portefeuille;
 
 public class Run {
+
+    private static final Logger LOG = Logger.getLogger(Portefeuille.class.getName());
 
     //Commentaire inutile.
     public static void main(String[] args) {
@@ -64,7 +67,7 @@ public class Run {
         System.out.println("Portefeuille : " + p);
 
         p.affichierLesAction();
-        System.out.println(p.actionPlusImportant(j2).getLibelle());
+        LOG.log(java.util.logging.Level.SEVERE, p.actionPlusImportant(j2).getLibelle());
 
     }
 
