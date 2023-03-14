@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tp04.metier;
 
 /**
  * Class representant le jour
+ *
  * @author equipe 2
  */
-public class Jour {
+public class Jour implements Comparable<Jour> {
 
     private int annee;
     private int noJour;
@@ -23,12 +23,22 @@ public class Jour {
     public int getAnnee() {
         return annee;
     }
-    
-    public String getAnneeJour()
+
+    public String getAnneeJour() 
     {
-    return (getAnnee()+" "+getNoJour());
+    return (getAnnee() + " " + getNoJour());
     }
 
+    @Override
+    public int compareTo(Jour autreJour) {
+        if (this.annee < autreJour.annee) {
+            return -1;
+        } else if (this.annee > autreJour.annee) {
+            return 1;
+        } else {
+            return Integer.compare(this.noJour, autreJour.noJour);
+        }
+    }
 
     /**
      * Get the value of noJour
@@ -69,5 +79,5 @@ public class Jour {
         }
         return true;
     }
-  
+
 }
