@@ -7,6 +7,7 @@ package tp04.metier;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  *
@@ -74,6 +75,30 @@ public class ActionSimple extends AbstractAction {
         public Cours(Jour jour, float valeur) {
             this.jour = jour;
             this.valeur = valeur;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 7;
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final Cours other = (Cours) obj;
+            if (Float.floatToIntBits(this.valeur) != Float.floatToIntBits(other.valeur)) {
+                return false;
+            }
+            return Objects.equals(this.jour, other.jour);
         }
 
     }

@@ -10,7 +10,6 @@
 package tp04.exec;
 
 import java.util.logging.Logger;
-import tp04.metier.AbstractAction;
 import tp04.metier.ActionComposee;
 import tp04.metier.ActionSimple;
 import tp04.metier.Jour;

@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tp04.metier;
 
 /**
  *
  * @author perussel
  */
-public class Jour {
+public class Jour implements Comparable<Jour> {
 
     private int annee;
     private int noJour;
@@ -23,7 +22,6 @@ public class Jour {
     public int getAnnee() {
         return annee;
     }
-
 
     /**
      * Get the value of noJour
@@ -64,5 +62,10 @@ public class Jour {
         }
         return true;
     }
-  
+
+    @Override
+    public int compareTo(Jour o) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Portefeuille {
 
-    Map<AbstractAction, LignePortefeuille> mapLignes;
+    public Map<AbstractAction, LignePortefeuille> mapLignes;
 
     private static final Logger LOG = Logger.getLogger(Portefeuille.class.getName());
 
@@ -101,12 +101,12 @@ public class Portefeuille {
 
     public AbstractAction actionPlusImportant(Jour j) {
         AbstractAction actionPlusImportant = null;
-        double var = 0.0;
+        double var1 = 0.0;
 
         for (Map.Entry<AbstractAction, LignePortefeuille> entry : mapLignes.entrySet()) {
-            System.out.println(entry.getKey().valeur(j));
-            if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > var) {
-                var = (double) entry.getKey().valeur(j) * (double) entry.getValue().qte;
+            //System.out.println(entry.getKey().valeur(j));
+            if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > var1) {
+                var1 = (double) entry.getKey().valeur(j) * (double) entry.getValue().qte;
 
                 actionPlusImportant = entry.getKey();
             }

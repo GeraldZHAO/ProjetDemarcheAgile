@@ -30,7 +30,7 @@ class US8Test {
     void testMethodeAffichierLesAction() {
         Portefeuille p = new Portefeuille();
         //si protefeuille null
-        assertNotNull(p.afficherAction());
+        assertNotNull(p.afficherAction(), "pas nul");
     }
 
     void testActionNotNull() {

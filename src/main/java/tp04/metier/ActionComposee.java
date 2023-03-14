@@ -7,6 +7,7 @@ package tp04.metier;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  *
@@ -42,6 +43,27 @@ public class ActionComposee extends AbstractAction {
     public int compareTo(AbstractAction o) {
         // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ActionComposee other = (ActionComposee) obj;
+        return Objects.equals(this.mapPanier, other.mapPanier);
     }
 
 }

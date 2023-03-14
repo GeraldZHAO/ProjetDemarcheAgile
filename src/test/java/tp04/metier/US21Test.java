@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 class US21Test {
 
     @Test
-    public void testActionPlusImportant() {
+    void testActionPlusImportant() {
         Portefeuille p = new Portefeuille();
         Jour j2 = new Jour(2014, 2);
 
