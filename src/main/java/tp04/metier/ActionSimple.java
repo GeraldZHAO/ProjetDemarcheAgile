@@ -118,24 +118,27 @@ public class ActionSimple extends Action {
         for (Entry<Jour, Cours> entry : entryset) {
             annee = entry.getValue().getJour().getAnnee();
             nojour = entry.getValue().getJour().getNoJour();
-            if (annee == anneeDebut && annee == anneeFin) {
-                if (nojour >= noJourDebut && nojour <= noJourFin) {
-                    mapResultat.put(entry.getKey(), entry.getValue());
-                } else {
-                    if (annee == anneeDebut) {
-                        if (nojour >= noJourDebut) {
-                            mapResultat.put(entry.getKey(), entry.getValue());
-                        }
-                    } else if (annee == anneeFin) {
-                        if (nojour <= noJourFin) {
-                            mapResultat.put(entry.getKey(), entry.getValue());
-                        }
-                    } else {
+            if (annee == anneeDebut) {
+                if (annee == anneeFin) {
+                    if (nojour >= noJourDebut && nojour <= noJourFin) {
+                        mapResultat.put(entry.getKey(), entry.getValue());
+                    }
+                } else if (annee < anneeFin) {
+                    if (nojour >= noJourDebut) {
                         mapResultat.put(entry.getKey(), entry.getValue());
                     }
                 }
+            } else if (annee > anneeDebut) {
+                if (annee == anneeFin) {
+                    if (nojour <= noJourFin) {
+                        mapResultat.put(entry.getKey(), entry.getValue());
+                    }
+                } else if (annee < anneeFin) {
+                    mapResultat.put(entry.getKey(), entry.getValue());
+                }
             }
         }
+
         return mapResultat;
     }
 
