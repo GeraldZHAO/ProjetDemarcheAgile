@@ -45,25 +45,4 @@ public class ActionComposee extends AbstractAction {
         throw new UnsupportedOperationException("Not supported yet. ");
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ActionComposee other = (ActionComposee) obj;
-        return Objects.equals(this.mapPanier, other.mapPanier);
-    }
-
 }
