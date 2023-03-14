@@ -22,7 +22,7 @@ public class ActionSimple extends Action {
     private Map<Jour, Cours> mapCours;
     public static final int pourcentage=100;
     public static final float Num_min=1000000000000f;
-    public static final float Num_max=1000000000000f;
+    public static final float Num_max=0f;
     /**
      * Constructeur d'une action simple
      *
