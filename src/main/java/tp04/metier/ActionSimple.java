@@ -61,7 +61,7 @@ public class ActionSimple extends Action {
      * @return float
      */
     public float getCoursPlusHaut() {
-        float max = 0f;
+        var max = 0f;
         float value;
         Map<Jour, Cours> map = getMapCours();
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
@@ -82,7 +82,7 @@ public class ActionSimple extends Action {
      * @return float
      */
     public float getCoursPlusBas() {
-        float min = 1000000f;
+        var min = 1000000f;
         float value;
         Map<Jour, Cours> map = getMapCours();
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
