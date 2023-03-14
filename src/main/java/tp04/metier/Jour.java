@@ -24,9 +24,9 @@ public class Jour {
         return annee;
     }
     
-    public String getAnneeJour(){
-    
-        return (getAnnee()+" "+getNoJour());
+    public String getAnneeJour()
+    {
+    return (getAnnee()+" "+getNoJour());
     }
 
 

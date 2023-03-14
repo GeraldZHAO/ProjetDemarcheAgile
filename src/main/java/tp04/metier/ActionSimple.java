@@ -136,6 +136,8 @@ public class ActionSimple extends Action {
                 } else if (annee < anneeFin) {
                     mapResultat.put(entry.getKey(), entry.getValue());
                 }
+            }else{
+                
             }
         }
 
@@ -151,9 +153,10 @@ public class ActionSimple extends Action {
      */
     public double getPourcentageEvo(Jour j1, Jour j2) {
         //valeurs
+        double c = 100;
         double cours1 = (double) getMapCours().get(j1).getValeur();
         double cours2 = (double) getMapCours().get(j2).getValeur();
-        return ((cours2 - cours1) / cours1) * 100;
+        return ((cours2 - cours1) / cours1) * c;
     }
 
     // enrg possible si pas de cours pour ce jour
