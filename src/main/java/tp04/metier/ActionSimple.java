@@ -5,11 +5,7 @@
  */
 package tp04.metier;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -20,7 +16,9 @@ import java.util.Set;
  */
 public class ActionSimple extends Action {
 
-    // attribut lien
+    /**
+     * attribut lien
+     */
     private Map<Jour, Cours> mapCours;
 
     /**
@@ -59,8 +57,8 @@ public class ActionSimple extends Action {
     /**
      * Obtenir le cours d'une action simple le plus haut par un jour donnee
      *
-     * @param j
-     * @return
+     * 
+     * @return float
      */
     public float getCoursPlusHaut() {
 
@@ -85,14 +83,14 @@ public class ActionSimple extends Action {
     /**
      * Obtenir le cours d'une action simple le plus bas par un jour donnee
      *
-     * @param j
-     * @return
+     * 
+     * @return float
      */
     public float getCoursPlusBas() {
         float min = 1000000f;
         Map<Jour, Cours> map = getMapCours();
 
-        float value = 0f;
+        float value;
 
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
 
@@ -113,7 +111,7 @@ public class ActionSimple extends Action {
      *
      * @param j1
      * @param j2
-     * @return
+     * @return Map<Jour, Cours>
      */
     public Map<Jour, Cours> getEvolution(Jour j1, Jour j2) {
 
