@@ -36,12 +36,12 @@ public class ActionSimple extends Action {
 
     //Getters 
     public Map<Jour, Cours> getMapCours() {
-        return mapCours;
+    return mapCours;
     }
 
     //setters
     public void setMapCours(Map<Jour, Cours> mapCours) {
-        this.mapCours = mapCours;
+    this.mapCours = mapCours;
     }
 
     /**
@@ -51,7 +51,7 @@ public class ActionSimple extends Action {
      * @return float cours
      */
     public float getCours(Jour j) {
-        return getMapCours().get(j).getValeur();
+    return getMapCours().get(j).getValeur();
     }
 
     /**
