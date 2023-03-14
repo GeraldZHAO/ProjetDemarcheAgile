@@ -20,7 +20,9 @@ public class ActionSimple extends Action {
      * attribut lien
      */
     private Map<Jour, Cours> mapCours;
-
+    public static final int pourcentage=100;
+    public static final float Num_min=1000000000000f;
+    public static final float Num_max=1000000000000f;
     /**
      * Constructeur d'une action simple
      *
@@ -61,7 +63,7 @@ public class ActionSimple extends Action {
      * @return float
      */
     public float getCoursPlusHaut() {
-        var max = 0f;
+        var max = Num_max;
         float value;
         Map<Jour, Cours> map = getMapCours();
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
@@ -82,7 +84,7 @@ public class ActionSimple extends Action {
      * @return float
      */
     public float getCoursPlusBas() {
-        var min = 1000000f;
+        var min = Num_min;
         float value;
         Map<Jour, Cours> map = getMapCours();
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
@@ -154,7 +156,7 @@ public class ActionSimple extends Action {
         //valeurs
         double cours1 = (double) getMapCours().get(j1).getValeur();
         double cours2 = (double) getMapCours().get(j2).getValeur();
-        return (cours2 - cours1) / cours1;
+        return ((cours2 - cours1) / cours1)*pourcentage;
     }
 
     // enrg possible si pas de cours pour ce jour
