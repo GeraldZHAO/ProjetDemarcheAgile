@@ -118,12 +118,11 @@ public class ActionSimple extends Action {
         for (Entry<Jour, Cours> entry : entryset) {
             annee = entry.getValue().getJour().getAnnee();
             nojour = entry.getValue().getJour().getNoJour();
-            if (anneeDebut >= annee && annee <= anneeFin) {
-                if (anneeDebut == anneeFin) {
-                    if (noJourDebut <= nojour && nojour <= noJourFin) {
+            if (anneeDebut == annee && annee == anneeFin){
+                if (noJourDebut <= nojour && nojour <= noJourFin) {
                         mapResultat.put(entry.getKey(), entry.getValue());
                     }
-                } else {
+            else {
                     if (annee == anneeDebut) {
                         if (noJourDebut <= nojour) {
                             mapResultat.put(entry.getKey(), entry.getValue());
@@ -138,9 +137,9 @@ public class ActionSimple extends Action {
                 }
             }
         }
-        return mapResultat;
+         return mapResultat;
     }
-
+            
     /**
      * methode qui permet d'obtenir le % de changement entre deux jours
      *
