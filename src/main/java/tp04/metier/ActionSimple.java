@@ -148,11 +148,11 @@ public class ActionSimple extends Action {
      * @param j2
      * @return float
      */
-    public double getPourcentageEvo(Jour j1, Jour j2) {
+    public float getPourcentageEvo(Jour j1, Jour j2) {
         //valeurs
-        float cours1 = getMapCours().get(j1).getValeur();
-        float cours2 = getMapCours().get(j2).getValeur();
-        return ((cours2 - cours1) / cours1) * 100;
+        double cours1 = (double)getMapCours().get(j1).getValeur();
+        double cours2 = (double)getMapCours().get(j2).getValeur();
+        return (float)((cours2 - cours1) / cours1) * 100;
     }
 
     // enrg possible si pas de cours pour ce jour
