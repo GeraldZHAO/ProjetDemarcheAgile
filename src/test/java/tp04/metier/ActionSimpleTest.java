@@ -20,7 +20,7 @@ public class ActionSimpleTest {
     }
 
     @Test
-    public void testCreationActionSimple() {
+    void testCreationActionSimple() {
         final String actionName = "First Action"; 
         final ActionSimple as = new ActionSimple(actionName);
         final String getLabel = as.getLibelle();
@@ -29,7 +29,7 @@ public class ActionSimpleTest {
     }
     
         @Test
-    public void testGetCoursParJour() {
+    void testGetCoursParJour() {
         final Jour j = new Jour(2023,100); 
         final ActionSimple as = new ActionSimple("A1");
         as.enrgCours(j, 5.80f);
@@ -41,7 +41,7 @@ public class ActionSimpleTest {
     
     
     @Test
-    public void testGetCoursPlusHautParJour() {
+    void testGetCoursPlusHautParJour() {
         final Jour j1 = new Jour(2023,100); 
         final Jour j2 = new Jour(2022,110); 
         final Jour j3 = new Jour(2023,234); 
@@ -58,7 +58,7 @@ public class ActionSimpleTest {
     }
     
      @Test
-    public void testGetCoursPlusBasParJour() {
+    void testGetCoursPlusBasParJour() {
         final Jour j1 = new Jour(2023,100); 
         final Jour j2 = new Jour(2022,110); 
         final Jour j3 = new Jour(2023,234); 
@@ -75,7 +75,7 @@ public class ActionSimpleTest {
     }
     
     @Test
-    public void testEvolutionAction() {
+    void testEvolutionAction() {
         final ActionSimple as = new ActionSimple("A1");   
         final Jour jourDebut = new Jour(2023,101); 
         final Jour jourFin = new Jour(2023,103); 
@@ -108,7 +108,7 @@ public class ActionSimpleTest {
        Assertions.assertEquals(6.99f, m.get(j5).getValeur(),"Equal");
     }
     @Test
-    public void testEvoPourcentage() {
+    void testEvoPourcentage() {
         final ActionSimple as = new ActionSimple("A1");  
         
         final Jour j1 = new Jour(2022,100); 
