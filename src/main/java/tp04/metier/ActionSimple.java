@@ -36,12 +36,12 @@ public class ActionSimple extends Action {
 
     //Getters 
     public Map<Jour, Cours> getMapCours() {
-    return mapCours;
+        return mapCours;
     }
 
     //setters
     public void setMapCours(Map<Jour, Cours> mapCours) {
-    this.mapCours = mapCours;
+        this.mapCours = mapCours;
     }
 
     /**
@@ -51,7 +51,7 @@ public class ActionSimple extends Action {
      * @return float cours
      */
     public float getCours(Jour j) {
-    return getMapCours().get(j).getValeur();
+        return getMapCours().get(j).getValeur();
     }
 
     /**
@@ -118,11 +118,10 @@ public class ActionSimple extends Action {
         for (Entry<Jour, Cours> entry : entryset) {
             annee = entry.getValue().getJour().getAnnee();
             nojour = entry.getValue().getJour().getNoJour();
-            if (annee == anneeDebut&& annee == anneeFin){
+            if (annee == anneeDebut && annee == anneeFin) {
                 if (nojour >= noJourDebut && nojour <= noJourFin) {
-                        mapResultat.put(entry.getKey(), entry.getValue());
-                    }
-            else {
+                    mapResultat.put(entry.getKey(), entry.getValue());
+                } else {
                     if (annee == anneeDebut) {
                         if (nojour >= noJourDebut) {
                             mapResultat.put(entry.getKey(), entry.getValue());
@@ -137,9 +136,9 @@ public class ActionSimple extends Action {
                 }
             }
         }
-         return mapResultat;
+        return mapResultat;
     }
-            
+
     /**
      * methode qui permet d'obtenir le % de changement entre deux jours
      *
@@ -149,8 +148,8 @@ public class ActionSimple extends Action {
      */
     public double getPourcentageEvo(Jour j1, Jour j2) {
         //valeurs
-        double cours1 = (double)getMapCours().get(j1).getValeur();
-        double cours2 = (double)getMapCours().get(j2).getValeur();
+        double cours1 = (double) getMapCours().get(j1).getValeur();
+        double cours2 = (double) getMapCours().get(j2).getValeur();
         return ((cours2 - cours1) / cours1) * 100;
     }
 
