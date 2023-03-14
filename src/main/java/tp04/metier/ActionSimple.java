@@ -27,7 +27,8 @@ public class ActionSimple extends Action {
      * @param libelle
      *
      */
-    public ActionSimple(String libelle) {
+    public ActionSimple(String libelle) 
+    {
         // Action simple initialisée comme 1 action
         super(libelle);
         // init spécifique
@@ -35,12 +36,14 @@ public class ActionSimple extends Action {
     }
 
     //Getters 
-    public Map<Jour, Cours> getMapCours() {
+    public Map<Jour, Cours> getMapCours() 
+    {
         return mapCours;
     }
 
     //setters
-    public void setMapCours(Map<Jour, Cours> mapCours) {
+    public void setMapCours(Map<Jour, Cours> mapCours) 
+    {
         this.mapCours = mapCours;
     }
 
@@ -50,7 +53,8 @@ public class ActionSimple extends Action {
      * @param j
      * @return float cours
      */
-    public float getCours(Jour j) {
+    public float getCours(Jour j) 
+    {
         return getMapCours().get(j).getValeur();
     }
 
@@ -60,20 +64,18 @@ public class ActionSimple extends Action {
      * 
      * @return float
      */
-    public float getCoursPlusHaut() {
-
+    public float getCoursPlusHaut() 
+    {
         float max = 0f;
+        float value;
         Map<Jour, Cours> map = getMapCours();
-
-        float value = 0f;
-
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
 
-        for (Entry<Jour, Cours> entry : entryset) {
-
+        for (Entry<Jour, Cours> entry : entryset) 
+        {
             value = entry.getValue().getValeur();
-
-            if (max < value) {
+            if (max < value) 
+            {
                 max = value;
             }
         }
@@ -86,18 +88,15 @@ public class ActionSimple extends Action {
      * 
      * @return float
      */
-    public float getCoursPlusBas() {
+    public float getCoursPlusBas() 
+    {
         float min = 1000000f;
-        Map<Jour, Cours> map = getMapCours();
-
         float value;
-
+        Map<Jour, Cours> map = getMapCours();
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
 
         for (Entry<Jour, Cours> entry : entryset) {
-
             value = entry.getValue().getValeur();
-
             if (min > value) {
                 min = value;
             }
@@ -113,39 +112,46 @@ public class ActionSimple extends Action {
      * @param j2
      * @return Map<Jour, Cours>
      */
-    public Map<Jour, Cours> getEvolution(Jour j1, Jour j2) {
-
+    public Map<Jour, Cours> getEvolution(Jour j1, Jour j2) 
+    {
         Map<Jour, Cours> map = getMapCours();
         Map<Jour, Cours> mapResultat = new HashMap<>();
-
         Set<Entry<Jour, Cours>> entryset = map.entrySet();
         int anneeDebut = j1.getAnnee();
         int anneeFin = j2.getAnnee();
         int noJourDebut = j1.getNoJour();
         int noJourFin = j2.getNoJour();
-
         int annee;
         int nojour;
 
-        for (Entry<Jour, Cours> entry : entryset) {
-
+        for (Entry<Jour, Cours> entry : entryset) 
+        {
             annee = entry.getValue().getJour().getAnnee();
             nojour = entry.getValue().getJour().getNoJour();
-            if (anneeDebut >= annee && annee <= anneeFin) {
-                if (anneeDebut == anneeFin) {
-                    if (noJourDebut <= nojour && nojour <= noJourFin) {
+            if (anneeDebut >= annee && annee <= anneeFin) 
+            {
+                if (anneeDebut == anneeFin) 
+                {
+                    if (noJourDebut <= nojour && nojour <= noJourFin) 
+                    {
                         mapResultat.put(entry.getKey(), entry.getValue());
                     }
-                } else {
-                    if (annee == anneeDebut) {
-                        if (noJourDebut <= nojour) {
+                } else 
+                {
+                    if (annee == anneeDebut) 
+                    {
+                        if (noJourDebut <= nojour)
+                        {
                             mapResultat.put(entry.getKey(), entry.getValue());
                         }
-                    } else if (annee == anneeFin) {
-                        if (nojour <= noJourFin) {
+                    } else if (annee == anneeFin) 
+                    {
+                        if (nojour <= noJourFin) 
+                        {
                             mapResultat.put(entry.getKey(), entry.getValue());
                         }
-                    } else {
+                    } else 
+                    {
                         mapResultat.put(entry.getKey(), entry.getValue());
                     }
                 }
@@ -161,49 +167,54 @@ public class ActionSimple extends Action {
      * @param j2
      * @return float
      */
-    public float getPourcentageEvo(Jour j1, Jour j2) {
+    public float getPourcentageEvo(Jour j1, Jour j2) 
+    {
         //valeurs
         float cours1 = getMapCours().get(j1).getValeur();
         float cours2 = getMapCours().get(j2).getValeur();
-
         return ((cours2 - cours1) / cours1) * 100;
     }
 
     // enrg possible si pas de cours pour ce jour
-    public void enrgCours(Jour j, float v) {
-        if (this.mapCours.containsKey(j) == false) {
+    public void enrgCours(Jour j, float v) 
+    {
+        if (this.mapCours.containsKey(j) == false) 
+        {
             this.mapCours.put(j, new Cours(j, v));
         }
     }
 
     @Override
-    public float valeur(Jour j) {
-        if (this.mapCours.containsKey(j) == true) {
+    public float valeur(Jour j) 
+    {
+        if (this.mapCours.containsKey(j) == true)
+        {
             return this.mapCours.get(j).getValeur();
-        } else {
+        } else 
+        {
             return 0; // definition d'une constante possible
         }
     }
 
     // encapsulation de la définition de la classe Cours
-    public static class Cours {
-
+    public static class Cours 
+    {
         private Jour jour;
-
         private float valeur;
-
-        public float getValeur() {
+        public float getValeur() 
+        {
             return valeur;
         }
 
-        public Jour getJour() {
+        public Jour getJour() 
+        {
             return jour;
         }
 
-        public Cours(Jour jour, float valeur) {
+        public Cours(Jour jour, float valeur) 
+        {
             this.jour = jour;
             this.valeur = valeur;
         }
-
     }
 }
