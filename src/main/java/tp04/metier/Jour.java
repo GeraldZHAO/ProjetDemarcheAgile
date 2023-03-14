@@ -68,19 +68,16 @@ public class Jour {
     }
   
     public void enregistreAction(Action a){
-      liste.add(a);
+    liste.add(a);
     }
     
-    public Action plusEleve()
-    {
-      float max = 0;
+    public Action plusEleve(){
+    float max = 0;
       Action result= new ActionSimple(" ");
-      for(int i= 0; i<liste.size();i++)
-      {
-        if( liste.get(i).valeur(this)> max)
-        {
-            max = liste.get(i).valeur(this);
-            result = liste.get(i);
+      for(int i= 0; i<liste.size();i++){
+      if( liste.get(i).valeur(this)> max){
+        max = liste.get(i).valeur(this);
+        result = liste.get(i);
         }
       }
         return result;
