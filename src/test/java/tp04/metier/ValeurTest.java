@@ -26,8 +26,7 @@ public class ValeurTest
     //l'action de le cour maximum de la journee
     
     @org.junit.jupiter.api.Test
-    public void testMaxCours()
-    {
+    public void testMaxCours(){
        
    
         // init des objets metiers Jour
