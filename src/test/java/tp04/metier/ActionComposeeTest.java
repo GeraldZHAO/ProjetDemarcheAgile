@@ -23,8 +23,10 @@ import org.junit.jupiter.api.Assertions;
  *
  * @author luokun
  */
-public class ActionComposeeTest {
-    public ActionComposeeTest() {
+public class ActionComposeeTest 
+{
+    public ActionComposeeTest() 
+    {
         
     }
 //    @Before
@@ -46,7 +48,8 @@ public class ActionComposeeTest {
 //    }
     
     @org.junit.jupiter.api.Test
-    public void testPourcentageComposee() {
+    public void testPourcentageComposee() 
+    {
         final String NameA = "franceTV";
         final ActionSimple as = new ActionSimple(NameA);
         final String NameAC = "France";
@@ -61,7 +64,8 @@ public class ActionComposeeTest {
     
     
     @org.junit.jupiter.api.Test
-    public void testValeur() {
+    public void testValeur() 
+    {
         final String NameA = "franceTV";
         final String NameA1 = "franceMTV";
         
@@ -91,7 +95,8 @@ public class ActionComposeeTest {
     
     
     @org.junit.jupiter.api.Test
-    public void testComposition() {
+    public void testComposition() 
+    {
         final String NameA = "franceTV";
         final String NameA1 = "franceMTV";
         final ActionSimple as = new ActionSimple(NameA);

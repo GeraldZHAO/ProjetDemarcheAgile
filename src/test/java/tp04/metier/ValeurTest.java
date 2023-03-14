@@ -21,11 +21,13 @@ import org.junit.jupiter.api.Assertions;
  *
  * @author luokun
  */
-public class ValeurTest {
+public class ValeurTest 
+{
     //l'action de le cour maximum de la journee
     
     @org.junit.jupiter.api.Test
-    public void testMaxCours(){
+    public void testMaxCours()
+    {
        
    
         // init des objets metiers Jour
