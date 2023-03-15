@@ -5,6 +5,7 @@
  */
 package tp04.metier;
 
+import static java.util.Collections.emptyMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -136,7 +137,7 @@ public class ActionSimple extends Action {
         }
 
         if(mapResultat.isEmpty()){
-            return null;
+            return emptyMap();
         }
         else{
             return mapResultat;
