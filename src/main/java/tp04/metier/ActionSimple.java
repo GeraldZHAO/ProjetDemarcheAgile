@@ -135,7 +135,12 @@ public class ActionSimple extends Action {
             }
         }
 
-        return mapResultat.isEmpty() ? null : mapResultat;
+        if(mapResultat.isEmpty()){
+            return null;
+        }
+        else{
+            return mapResultat;
+        }
     }
 
     /**
