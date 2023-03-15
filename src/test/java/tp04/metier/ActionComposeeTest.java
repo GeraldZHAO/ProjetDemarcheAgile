@@ -46,7 +46,7 @@ class ActionComposeeTest {
 //    }
     
     @org.junit.jupiter.api.Test
-    public void testPourcentageComposee() {
+    void testPourcentageComposee() {
         final String NameA = "franceTV";
         final ActionSimple as = new ActionSimple(NameA);
         final String NameAC = "France";
@@ -61,7 +61,7 @@ class ActionComposeeTest {
     
     
     @org.junit.jupiter.api.Test
-    public void testValeur() {
+    void testValeur() {
         final String NameA = "franceTV";
         final String NameA1 = "franceMTV";
         
@@ -91,7 +91,7 @@ class ActionComposeeTest {
     
     
     @org.junit.jupiter.api.Test
-    public void testComposition() {
+    void testComposition() {
         final String NameA = "franceTV";
         final String NameA1 = "franceMTV";
         final ActionSimple as = new ActionSimple(NameA);

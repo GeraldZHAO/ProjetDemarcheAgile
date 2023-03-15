@@ -35,7 +35,7 @@ public class ActionComposee extends Action {
         
     valeur = 0;
     for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
-    ActionSimple as = entry.getKey();
+      ActionSimple as = entry.getKey();
         valeur = valeur + (as.valeur(j) * this.mapPanier.get(as));
         }
         
@@ -50,7 +50,7 @@ public class ActionComposee extends Action {
     public void connaitrecComposition(){
     for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
       ActionSimple as = entry.getKey();
-        LOG.log(Level.INFO, "{0} % {1}", new Object[]{this.mapPanier.get(as), as.getLibelle()});
+      LOG.log(Level.INFO, "{0} % {1}", new Object[]{this.mapPanier.get(as), as.getLibelle()});
       }
     }
     
@@ -60,7 +60,7 @@ public class ActionComposee extends Action {
       
       for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
       ActionSimple as = entry.getKey();
-        newMap.put(as, this.mapPanier.get(as));
+      newMap.put(as, this.mapPanier.get(as));
          
        }
         return newMap;
