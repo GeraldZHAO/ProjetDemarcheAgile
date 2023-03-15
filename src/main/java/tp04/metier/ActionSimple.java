@@ -107,18 +107,13 @@ public class ActionSimple extends Action {
      * @return boolean
      */
     private boolean isJourInRange(Jour jour, Jour j1, Jour j2) {
-        if (jour.getAnnee() < j1.getAnnee() || jour.getAnnee() > j2.getAnnee()) {
-        return false;
-        }
-        if (jour.getAnnee() == j1.getAnnee() && jour.getNoJour() < j1.getNoJour()) {
-        return false;
-        }
-        if (jour.getAnnee() == j2.getAnnee() && jour.getNoJour() > j2.getNoJour()) {
-        return false;
-        }
-        return true;
-        }
-    
+    boolean isInYearRange = (jour.getAnnee() >= j1.getAnnee()) && (jour.getAnnee() <= j2.getAnnee());
+    boolean isInDayRange = (jour.getAnnee() == j1.getAnnee() && jour.getNoJour() >= j1.getNoJour()) ||
+                           (jour.getAnnee() == j2.getAnnee() && jour.getNoJour() <= j2.getNoJour()) ||
+                           (jour.getAnnee() > j1.getAnnee() && jour.getAnnee() < j2.getAnnee());
+    return isInYearRange && isInDayRange;
+}
+
     /**
      * methode qui determine l'evolution d'une action simple
      * @param j1
