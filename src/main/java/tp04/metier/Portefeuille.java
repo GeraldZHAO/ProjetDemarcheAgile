@@ -17,13 +17,13 @@ import java.util.logging.Logger;
  */
 public class Portefeuille {
 
-    public Map<AbstractAction, LignePortefeuille> mapLignes;
+    public Map<Action, LignePortefeuille> mapLignes;
 
     private static final Logger LOG = Logger.getLogger(Portefeuille.class.getName());
 
     private class LignePortefeuille {
 
-        private AbstractAction action;
+        private Action action;
 
         private int qte;
 
@@ -35,11 +35,11 @@ public class Portefeuille {
             this.qte = qte;
         }
 
-        public AbstractAction getAction() {
+        public Action getAction() {
             return this.action;
         }
 
-        public LignePortefeuille(AbstractAction action, int qte) {
+        public LignePortefeuille(Action action, int qte) {
             this.action = action;
             this.qte = qte;
         }
@@ -53,7 +53,7 @@ public class Portefeuille {
         this.mapLignes = new HashMap();
     }
 
-    public void acheter(AbstractAction a, int q) {
+    public void acheter(Action a, int q) {
         if (this.mapLignes.containsKey(a) == false) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));
         } else {
@@ -62,7 +62,7 @@ public class Portefeuille {
 
     }
 
-    public void vendre(AbstractAction a, int q) {
+    public void vendre(Action a, int q) {
         if (this.mapLignes.containsKey(a) == true) {
             if (this.mapLignes.get(a).getQte() > q) {
                 this.mapLignes.get(a).setQte(this.mapLignes.get(a).getQte() - q);
@@ -86,24 +86,24 @@ public class Portefeuille {
 
     public void affichierLesAction() {
 
-        Iterator<AbstractAction> iterator = this.mapLignes.keySet().iterator();
+        Iterator<Action> iterator = this.mapLignes.keySet().iterator();
         while (iterator.hasNext()) {
-            AbstractAction key = iterator.next();
+            Action key = iterator.next();
             LignePortefeuille value = this.mapLignes.get(key);
             String s = "nom de action " + key.getLibelle() + ", qte = " + value.getQte();
             LOG.log(java.util.logging.Level.SEVERE, s);
         }
     }
 
-    public Map<AbstractAction, LignePortefeuille> afficherAction() {
+    public Map<Action, LignePortefeuille> afficherAction() {
         return this.mapLignes;
     }
 
-    public AbstractAction actionPlusImportant(Jour j) {
-        AbstractAction actionPlusImportant = null;
+    public Action actionPlusImportant(Jour j) {
+        Action actionPlusImportant = null;
         double var1 = 0.0;
 
-        for (Map.Entry<AbstractAction, LignePortefeuille> entry : mapLignes.entrySet()) {
+        for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
             //System.out.println(entry.getKey().valeur(j));
             if (((double) entry.getKey().valeur(j) * (double) entry.getValue().qte) > var1) {
                 var1 = (double) entry.getKey().valeur(j) * (double) entry.getValue().qte;
