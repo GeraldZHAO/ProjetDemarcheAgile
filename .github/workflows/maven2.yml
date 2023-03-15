@@ -16,10 +16,7 @@ env:
 on:
   push:
     branches:
-      - master
-      - Equipe1
-      - Equipe2
-      - Equipe3
+      - '**'
   pull_request:
     branches: [ "master" ]
 
@@ -37,7 +34,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package 
+      run: mvn -B package
     - name: SonarCloud Scan
       run: mvn -B verify sonar:sonar
     - name: Check Javadoc
