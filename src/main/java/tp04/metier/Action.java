@@ -9,12 +9,17 @@
 package tp04.metier;
 
 import java.util.Objects;
+import java.lang.Comparable;
+import java.lang.Integer;
+import java.lang.String;
 
 /**
  *
  * @author perussel
  */
-public abstract class Action {
+public abstract class Action implements Comparable<Action>{
+    
+    
     
     private String libelle;
 
@@ -29,6 +34,11 @@ public abstract class Action {
 
     public Action(String libelle) {
         this.libelle = libelle;
+    }
+    
+    @Override
+    public int compareTo(Action a){
+        return Objects.compare(this.libelle,a.libelle, String::compareTo);
     }
 
     public abstract float valeur(Jour j);

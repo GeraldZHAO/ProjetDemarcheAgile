@@ -53,9 +53,26 @@ public class ActionComposee extends Action {
       LOG.log(Level.INFO, "{0} % {1}", new Object[]{this.mapPanier.get(as), as.getLibelle()});
       }
     }
+//
+//        
+//    class ActionSimple implements Comparable<ActionSimple>{
+//        
+//        public int compareTo(Action a){
+//            String nom;
+//            return String compare(this.nom, as.getLibelle());
+//        }
+//    }
+//    
+//    class MyChildActionSimple extends ActionSimple {
+//    // ...
+//    }
+//    
+//    
+//    
     
     public Map getMap()
     {
+//    Map<Action, Float> newMap = new HashMap();
     Map<ActionSimple, Float> newMap = new HashMap();
       
       for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
