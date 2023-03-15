@@ -131,15 +131,12 @@ public class ActionSimple extends Action {
                     }
                 }
             } else if (annee > anneeDebut) {
-                if (annee == anneeFin) {
-                    if (nojour <= noJourFin) {
+                if (annee == anneeFin && nojour <= noJourFin) {
                         mapResultat.put(entry.getKey(), entry.getValue());
-                    }
                 } else if (annee < anneeFin) {
                     mapResultat.put(entry.getKey(), entry.getValue());
                 }
-            }else{
-                
+            }else{              
             }
         }
         return mapResultat;
