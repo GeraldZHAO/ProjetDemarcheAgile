@@ -15,17 +15,10 @@
  */
 package tp04.metier;
 
-/**
- */
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-/**
- *
- * @author h
- */
-class US15Test {
+class US12Test {
 
     @Test
     void testNotNull() {
@@ -36,11 +29,12 @@ class US15Test {
         // creation d'actions simples
         bnp = new ActionSimple("BNP");
         int qte1 = 10;
-        p.acheter(bnp, 10);
-
+        //on achete une seule action, la taille de notre lsite d'actions devient 1
+        p.acheter(bnp, qte1);
+        //on vend notre seule action , la taille de notre lsite d'actions revient a 0
+        p.vendre(bnp, qte1);
         //test
-        //pour vérifier est-ce que les action est bien achetée
-        //Si l'achat de l'action est réussi, il n'est pas null
-        assertNotNull(p.afficherAction(), "action achetée");
+        //On vend l'action qu'onn vient d'acheter donc la taille de la liste qui continet les actions dans notre portefeuille devrais etre O
+        assertEquals(0, p.mapLignes.size(), "l'action  a ete vendue");
     }
 }

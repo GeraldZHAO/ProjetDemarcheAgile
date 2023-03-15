@@ -15,7 +15,8 @@
  */
 package tp04.metier;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+/**
+ */
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
@@ -24,30 +25,22 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-class US20Test {
+class US11Test {
 
     @Test
-    void testActionPlusImportant() {
+    void testNotNull() {
+        //creation de portefeuille
         Portefeuille p = new Portefeuille();
-        Jour j2 = new Jour(2014, 2);
+        ActionSimple bnp;
 
-        //metter les actions dans le portefeuille
-        ActionSimple bnp = new ActionSimple("BNP");
-        ActionSimple axa = new ActionSimple("AXA");
-        ActionComposee bqAss = new ActionComposee("Banque-Assurance");
-        // enrg de la composition de l'action composée
-        bqAss.enrgComposition(axa, 0.3f);
-        bqAss.enrgComposition(bnp, 0.7f);
+        // creation d'actions simples
+        bnp = new ActionSimple("BNP");
+        int qte1 = 10;
+        p.acheter(bnp, 10);
 
-        bnp.enrgCours(j2, 10F);
-        axa.enrgCours(j2, 10F);
-
-        p.acheter(axa, 2);
-        p.acheter(bnp, 1);
-        p.acheter(bqAss, 1);
-
-        //test la result de valeur si bien correspond le resultat correct
-        assertEquals(axa, p.actionPlusImportant(j2), "valeur plus importante verifier");
+        //test
+        //pour vérifier est-ce que les action est bien achetée
+        //Si l'achat de l'action est réussi, il n'est pas null
+        assertNotNull(p.afficherAction(), "action achetée");
     }
-
 }

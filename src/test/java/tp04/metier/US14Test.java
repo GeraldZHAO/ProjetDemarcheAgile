@@ -24,28 +24,30 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-class US6Test {
+class US14Test {
 
     @Test
-    void testMethodeAffichierLesAction() {
+    void testActionPlusImportant() {
         Portefeuille p = new Portefeuille();
-        //pour vérifier est-ce que le contenu de mapLignes est null
-        assertNotNull(p.afficherAction(), "pas nul");
-    }
+        Jour j2 = new Jour(2014, 2);
 
-    void testActionNotNull() {
-        //préparer les données
-        Portefeuille p = new Portefeuille();
-        ActionSimple bnp, axa;
-        bnp = new ActionSimple("BNP");
-        axa = new ActionSimple("AXA");
-        p.acheter(axa, 10);
-        p.acheter(bnp, 20);
+        //metter les actions dans le portefeuille
+        ActionSimple bnp = new ActionSimple("BNP");
+        ActionSimple axa = new ActionSimple("AXA");
+        ActionComposee bqAss = new ActionComposee("Banque-Assurance");
+        // enrg de la composition de l'action composée
+        bqAss.enrgComposition(axa, 0.3f);
+        bqAss.enrgComposition(bnp, 0.7f);
 
-        //test
-        //test la resultat de valeur si bien correspond le resultat correct
-        assertEquals(2, p.afficherAction().size(), "remplis");
+        bnp.enrgCours(j2, 10F);
+        axa.enrgCours(j2, 10F);
 
+        p.acheter(axa, 2);
+        p.acheter(bnp, 1);
+        p.acheter(bqAss, 1);
+
+        //test la result de valeur si bien correspond le resultat correct
+        assertEquals(axa, p.actionPlusImportant(j2), "valeur plus importante verifier");
     }
 
 }
