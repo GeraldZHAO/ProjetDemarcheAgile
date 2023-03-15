@@ -31,35 +31,35 @@ public class ActionComposee extends Action {
 
     @Override
     public float valeur(Jour j) {
-        float valeur;
+    float valeur;
         
-        valeur = 0;
-        for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet())
-        {ActionSimple as = entry.getKey();
-          valeur = valeur + (as.valeur(j) * this.mapPanier.get(as));
+    valeur = 0;
+    for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
+    ActionSimple as = entry.getKey();
+        valeur = valeur + (as.valeur(j) * this.mapPanier.get(as));
         }
         
-        return valeur;
+    return valeur;
     }
     
-    public float getPourcentage(ActionSimple as)
-    {return this.mapPanier.get(as);
+    public float getPourcentage(ActionSimple as){
+    return this.mapPanier.get(as);
     }
     
     
-    public void connaitrecComposition()
-    {for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet())
-      {ActionSimple as = entry.getKey();
+    public void connaitrecComposition(){
+    for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
+      ActionSimple as = entry.getKey();
         LOG.log(Level.INFO, "{0} % {1}", new Object[]{this.mapPanier.get(as), as.getLibelle()});
       }
     }
     
     public Map getMap()
     {
-      Map<ActionSimple, Float> newMap = new HashMap();
+    Map<ActionSimple, Float> newMap = new HashMap();
       
-      for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet())
-      {ActionSimple as = entry.getKey();
+      for(Map.Entry<ActionSimple,Float> entry : this.mapPanier.entrySet()){
+      ActionSimple as = entry.getKey();
         newMap.put(as, this.mapPanier.get(as));
          
        }

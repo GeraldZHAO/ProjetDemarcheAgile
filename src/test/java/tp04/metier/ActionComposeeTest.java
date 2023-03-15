@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Assertions;
  *
  * @author luokun
  */
-public class ActionComposeeTest {
+class ActionComposeeTest {
     public ActionComposeeTest() {
         
     }

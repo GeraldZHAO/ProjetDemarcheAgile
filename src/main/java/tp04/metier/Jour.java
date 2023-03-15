@@ -73,11 +73,11 @@ public class Jour {
     
     public Action plusEleve(){
     float max = 0;
-      Action result= new ActionSimple(" ");
-      for(int i= 0; i<liste.size();i++){
-      if( liste.get(i).valeur(this)> max){
-        max = liste.get(i).valeur(this);
-        result = liste.get(i);
+    Action result= new ActionSimple(" ");
+      for(int var= 0; var<liste.size();var++){
+      if( liste.get(var).valeur(this)> max){
+        max = liste.get(var).valeur(this);
+        result = liste.get(var);
         }
       }
         return result;

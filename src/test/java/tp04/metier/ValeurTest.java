@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Assertions;
  *
  * @author luokun
  */
-public class ValeurTest 
+class ValeurTest 
 {
     //l'action de le cour maximum de la journee
     
