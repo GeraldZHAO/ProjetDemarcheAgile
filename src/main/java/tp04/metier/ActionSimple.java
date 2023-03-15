@@ -161,14 +161,11 @@ public class ActionSimple extends Action {
     }
 
     @Override
-    public float valeur(Jour j) {
-        if (this.mapCours.containsKey(j) == true) {
-            return this.mapCours.get(j).getValeur();
-        } else {
-            return 0; // definition d'une constante possible
-        }
-    }
 
+    public float valeur(Jour j) {
+        Cours cours = this.mapCours.computeIfAbsent(j, k -> new Cours());
+    return cours.getValeur();
+    }
     // encapsulation de la définition de la classe Cours
     public static class Cours {
 
@@ -187,5 +184,8 @@ public class ActionSimple extends Action {
             this.jour = jour;
             this.valeur = valeur;
         }
+
+        public Cours() {}
+        
     }
 }
