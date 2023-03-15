@@ -106,40 +106,77 @@ public class ActionSimple extends Action {
      * @param j2
      * @return Map<Jour, Cours>
      */
+//    public Map<Jour, Cours> getEvolution(Jour j1, Jour j2) {
+//        Map<Jour, Cours> map = getMapCours();
+//        Map<Jour, Cours> mapResultat = new HashMap<>();
+//        Set<Entry<Jour, Cours>> entryset = map.entrySet();
+//        int anneeDebut = j1.getAnnee();
+//        int anneeFin = j2.getAnnee();
+//        int noJourDebut = j1.getNoJour();
+//        int noJourFin = j2.getNoJour();
+//        int annee;
+//        int nojour;
+//
+//        for (Entry<Jour, Cours> entry : entryset) {
+//            annee = entry.getValue().getJour().getAnnee();
+//            nojour = entry.getValue().getJour().getNoJour();
+//            if (annee == anneeDebut) {
+//                if (annee == anneeFin) {
+//                    if (nojour >= noJourDebut && nojour <= noJourFin) {
+//                        mapResultat.put(entry.getKey(), entry.getValue());
+//                    }
+//                } else if (annee < anneeFin && nojour >= noJourDebut) {
+//                        mapResultat.put(entry.getKey(), entry.getValue());
+//                }
+//            } else if (annee > anneeDebut) {
+//                if ((annee == anneeFin && nojour <= noJourFin) ||annee < anneeFin ) {
+//                        mapResultat.put(entry.getKey(), entry.getValue());
+//                }
+//            } else{     
+//                return null;       
+//            }
+//        }
+//        return mapResultat;
+//    }
+    
+    /**
+     * 
+     * @param jour
+     * @param j1
+     * @param j2
+     * @return 
+     */
+    private boolean isJourInRange(Jour jour, Jour j1, Jour j2) {
+        if (jour.getAnnee() < j1.getAnnee() || jour.getAnnee() > j2.getAnnee()) {
+        return false;
+        }
+        if (jour.getAnnee() == j1.getAnnee() && jour.getNoJour() < j1.getNoJour()) {
+        return false;
+        }
+        if (jour.getAnnee() == j2.getAnnee() && jour.getNoJour() > j2.getNoJour()) {
+        return false;
+        }
+        return true;
+        }
+    
+    /**
+     * methode test
+     * @param j1
+     * @param j2
+     * @return 
+     */
     public Map<Jour, Cours> getEvolution(Jour j1, Jour j2) {
         Map<Jour, Cours> map = getMapCours();
         Map<Jour, Cours> mapResultat = new HashMap<>();
-        Set<Entry<Jour, Cours>> entryset = map.entrySet();
-        int anneeDebut = j1.getAnnee();
-        int anneeFin = j2.getAnnee();
-        int noJourDebut = j1.getNoJour();
-        int noJourFin = j2.getNoJour();
-        int annee;
-        int nojour;
 
-        for (Entry<Jour, Cours> entry : entryset) {
-            annee = entry.getValue().getJour().getAnnee();
-            nojour = entry.getValue().getJour().getNoJour();
-            if (annee == anneeDebut) {
-                if (annee == anneeFin) {
-                    if (nojour >= noJourDebut && nojour <= noJourFin) {
-                        mapResultat.put(entry.getKey(), entry.getValue());
-                    }
-                } else if (annee < anneeFin) {
-                    if (nojour >= noJourDebut) {
-                        mapResultat.put(entry.getKey(), entry.getValue());
-                    }
-                }
-            } else if (annee > anneeDebut) {
-                if (annee == anneeFin && nojour <= noJourFin) {
-                        mapResultat.put(entry.getKey(), entry.getValue());
-                } else if (annee < anneeFin) {
-                    mapResultat.put(entry.getKey(), entry.getValue());
-                }
-            }else{              
+        for (Entry<Jour, Cours> entry : map.entrySet()) {
+            Jour jour = entry.getValue().getJour();
+            if (isJourInRange(jour, j1, j2)) {
+                mapResultat.put(entry.getKey(), entry.getValue());
             }
         }
-        return mapResultat;
+
+        return mapResultat.isEmpty() ? null : mapResultat;
     }
 
     /**
