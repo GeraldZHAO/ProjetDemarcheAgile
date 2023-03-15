@@ -99,52 +99,11 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * methode qui permet d'avoir l'evolution cours d'une action au cours d'une
-     * periode
-     *
-     * @param j1
-     * @param j2
-     * @return Map<Jour, Cours>
-     */
-//    public Map<Jour, Cours> getEvolution(Jour j1, Jour j2) {
-//        Map<Jour, Cours> map = getMapCours();
-//        Map<Jour, Cours> mapResultat = new HashMap<>();
-//        Set<Entry<Jour, Cours>> entryset = map.entrySet();
-//        int anneeDebut = j1.getAnnee();
-//        int anneeFin = j2.getAnnee();
-//        int noJourDebut = j1.getNoJour();
-//        int noJourFin = j2.getNoJour();
-//        int annee;
-//        int nojour;
-//
-//        for (Entry<Jour, Cours> entry : entryset) {
-//            annee = entry.getValue().getJour().getAnnee();
-//            nojour = entry.getValue().getJour().getNoJour();
-//            if (annee == anneeDebut) {
-//                if (annee == anneeFin) {
-//                    if (nojour >= noJourDebut && nojour <= noJourFin) {
-//                        mapResultat.put(entry.getKey(), entry.getValue());
-//                    }
-//                } else if (annee < anneeFin && nojour >= noJourDebut) {
-//                        mapResultat.put(entry.getKey(), entry.getValue());
-//                }
-//            } else if (annee > anneeDebut) {
-//                if ((annee == anneeFin && nojour <= noJourFin) ||annee < anneeFin ) {
-//                        mapResultat.put(entry.getKey(), entry.getValue());
-//                }
-//            } else{     
-//                return null;       
-//            }
-//        }
-//        return mapResultat;
-//    }
-    
-    /**
-     * 
+     * methode qui verifie si une date est dans un intervalle
      * @param jour
      * @param j1
      * @param j2
-     * @return 
+     * @return boolean
      */
     private boolean isJourInRange(Jour jour, Jour j1, Jour j2) {
         if (jour.getAnnee() < j1.getAnnee() || jour.getAnnee() > j2.getAnnee()) {
@@ -160,7 +119,7 @@ public class ActionSimple extends Action {
         }
     
     /**
-     * methode test
+     * methode qui determine l'evolution d'une action simple
      * @param j1
      * @param j2
      * @return 
