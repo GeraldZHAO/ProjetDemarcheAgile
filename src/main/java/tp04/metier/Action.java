@@ -6,12 +6,12 @@ import java.util.Objects;
  *
  * @author perussel
  */
-public abstract class AbstractAction implements Comparable<AbstractAction> {
+public abstract class Action implements Comparable<Action> {
 
     //proprietes
     private String libelle;
 
-    protected AbstractAction(String libelle) {
+    protected Action(String libelle) {
         this.libelle = libelle;
     }
 

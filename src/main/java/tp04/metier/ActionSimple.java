@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author perussel
  */
-public class ActionSimple extends AbstractAction {
+public class ActionSimple extends Action {
 
     // attribut lien
     private Map<Jour, Cours> mapCours;
@@ -52,7 +52,7 @@ public class ActionSimple extends AbstractAction {
     }
 
     @Override
-    public int compareTo(AbstractAction o) {
+    public int compareTo(Action o) {
         // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         throw new UnsupportedOperationException("Not supported yet.");
     }

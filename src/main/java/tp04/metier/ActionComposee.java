@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author perussel
  */
-public class ActionComposee extends AbstractAction {
+public class ActionComposee extends Action {
 
     // attribut lien
     Map<ActionSimple, Float> mapPanier;
@@ -40,7 +40,7 @@ public class ActionComposee extends AbstractAction {
     }
 
     @Override
-    public int compareTo(AbstractAction o) {
+    public int compareTo(Action o) {
 
         throw new UnsupportedOperationException("Not supported yet. ");
     }
