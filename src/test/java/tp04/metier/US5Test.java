@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author h
  */
-class US7Test {
+class US5Test {
 
     @Test
     void testValeurPortefeuille() {

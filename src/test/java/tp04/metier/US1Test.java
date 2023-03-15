@@ -27,8 +27,8 @@ class US1Test {
 
     @Test
     void testNotNull() {
+        //la constructeur d’un portefeuille.
         Portefeuille p = new Portefeuille();
-
         //test
         //pour vérifier est-ce que le portefeuille a été crée réussie
         assertNotNull(p, "portefeuille crée");

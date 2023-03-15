@@ -85,13 +85,16 @@ public class Portefeuille {
     }
 
     public void affichierLesAction() {
-
-        Iterator<Action> iterator = this.mapLignes.keySet().iterator();
-        while (iterator.hasNext()) {
-            Action key = iterator.next();
-            LignePortefeuille value = this.mapLignes.get(key);
-            String s = "nom de action " + key.getLibelle() + ", qte = " + value.getQte();
-            LOG.log(java.util.logging.Level.SEVERE, s);
+        if (this.mapLignes.size() != 0) {
+            Iterator<Action> iterator = this.mapLignes.keySet().iterator();
+            while (iterator.hasNext()) {
+                Action key = iterator.next();
+                LignePortefeuille value = this.mapLignes.get(key);
+                String s = "nom de action " + key.getLibelle() + ", qte = " + value.getQte();
+                LOG.log(java.util.logging.Level.SEVERE, s);
+            }
+        } else {
+            LOG.log(java.util.logging.Level.SEVERE, "non action dans portefeuille");
         }
     }
 

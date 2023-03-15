@@ -16,37 +16,25 @@
 package tp04.metier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
-/**
- *
- * @author h
- */
-class US8Test {
+class US16Test {
 
     @Test
-    void testMethodeAffichierLesAction() {
+    void testNotNull() {
+        //creation de portefeuille
         Portefeuille p = new Portefeuille();
-        //si protefeuille null
-        assertNotNull(p.afficherAction(), "pas nul");
-    }
+        ActionSimple bnp;
 
-    void testActionNotNull() {
-        //préparer les données
-        Portefeuille p = new Portefeuille();
-        ActionSimple bnp, axa;
+        // creation d'actions simples
         bnp = new ActionSimple("BNP");
-        axa = new ActionSimple("AXA");
-        p.acheter(axa, 10);
-        p.acheter(bnp, 20);
-
+        int qte1 = 10;
+        //on achete une seule action, la taille de notre lsite d'actions devient 1
+        p.acheter(bnp, qte1);
+        //on vend notre seule action , la taille de notre lsite d'actions revient a 0
+        p.vendre(bnp, qte1);
         //test
-        //pour vérifier est-ce que le contenu de mapLignes est null
-        assertNotNull(p.afficherAction(), "pas nul");
-        assertEquals(0, p.afficherAction().size(), "remplis");
-
+        //On vend l'action qu'onn vient d'acheter donc la taille de la liste qui continet les actions dans notre portefeuille devrais etre O
+        assertEquals(0, p.mapLignes.size(), "l'action  a ete vendue");
     }
-
 }
