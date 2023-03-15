@@ -153,13 +153,11 @@ public class ActionSimple extends Action {
         return ((cours2 - cours1) / cours1)*POURCENTAGE;
     }
 
-    // enrg possible si pas de cours pour ce jour
+    // enrg possible si pas de cours pour ce jour 
     public void enrgCours(Jour j, float v) {
-        if (this.mapCours.containsKey(j) == false) {
-            this.mapCours.put(j, new Cours(j, v));
-        }
+        this.mapCours.computeIfAbsent(j, k -> new Cours(j, v));
     }
-
+    
     @Override
 
     public float valeur(Jour j) {
